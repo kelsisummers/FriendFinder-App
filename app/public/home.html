@@ -2,44 +2,55 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>FriendFinder</title>
+  <title>Fetching</title>
 
-  <!-- Latest compiled and minified CSS & JS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css">
+  
+  <!-- jQuery Link -->
   <script src="https://code.jquery.com/jquery.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+ 
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <!-- Font Awesome Glyphicons -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+  <!-- Materialize JavaScript -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Shadows+Into+Light" rel="stylesheet">
+
 
 </head>
 <body>
-<body>
+  <!-- Main Image  -->
+  <img class="cover-image" src="two_swings_cover.jpg" style="height:45vw">
 
-  <div class="container">
-
-    <div class="jumbotron">
-      <h1><i class="fa fa-facebook-square" aria-hidden="true"></i> Friend Finder</h1>
-      <hr>
-      <h2>Answer a few basic questions. </h2>
-      <h2>Then find the friend with the greatest compatibility!</h2>
-      <br>
-
-      <div>
-        <a href="/survey"><button type="button" class="btn btn-lg btn-primary"><h4><span class="glyphicon glyphicon-list-alt"></span> Go to Survey</h4></button></a>
-      </div>
-
-    </div>
-
-    <footer class="footer">
-      <div class="container">
-        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/afhaque/friendfinder">GitHub Repo</a></p>
-      </div>
-    </footer>
-
+  <!-- Logo -->
+  <div class="logo-container responsive">
+    <h1 class="logo">Fetching</h1>
   </div>
 
-</body>
-    
+  <!-- Instructions Div -->
+  <div class = "cover-container col s6 m6 l6">
+
+    <h2 class="subtitle">Answer a Few Basic Questions</h2>
+    <h2 class="subtitle">Fetching Will Find the Friend with the Greatest Compatibility</h2>
+
+    <!-- Survey Link Button -->
+    <a href="/survey"><button class="btn waves-effect waves-light button" type="button" name="action" style="background-color:darkgray; margin-top: 2%;">Survey<i class="material-icons right">question_answer</i>
+    </button></a>
+  </div>
+
+<!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <!-- API Link -->
+      <p><a href="/api/friends" style="color:gray">API Friends List</a> | 
+      <!-- GitHub Link -->
+      <a href="https://github.com/kelsisummers/FriendFinder-App.git" style="color:gray">GitHub Repo</a></p>
+    </div>
+  </footer>
+  </div>
 </body>
 </html>
