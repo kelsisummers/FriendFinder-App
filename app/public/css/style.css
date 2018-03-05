@@ -1,28 +1,16 @@
-input:not([type]):focus:not([readonly]), input[type=text]:not(.browser-default):focus:not([readonly]), input[type=password]:not(.browser-default):focus:not([readonly]), input[type=email]:not(.browser-default):focus:not([readonly]), input[type=url]:not(.browser-default):focus:not([readonly]), input[type=time]:not(.browser-default):focus:not([readonly]), input[type=date]:not(.browser-default):focus:not([readonly]), input[type=datetime]:not(.browser-default):focus:not([readonly]), input[type=datetime-local]:not(.browser-default):focus:not([readonly]), input[type=tel]:not(.browser-default):focus:not([readonly]), input[type=number]:not(.browser-default):focus:not([readonly]), input[type=search]:not(.browser-default):focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]) {
-  border-bottom: 1px solid gray;
-  -webkit-box-shadow: 0 1px 0 0 gray;
-  box-shadow: 0 1px 0 0 gray;
-  color: gray;
-};
-
-.dropdown-content li>a, .dropdown-content li>span {
-  font-size: 14px;
-  color: black;
-  font-family: 'Source Code Pro', monospace;
-  line-height: 16px;
-  padding: 10px 10px;
-};
-
+/* Default Font */
 body {
   font-family: 'Source Code Pro', monospace;
 }
 
+/* Logo Container Div */
 .logo-container {
   position: absolute;
   top: 50px;
   left: 9vw;
 }
 
+/* Logo Font */
 .logo {
   font-family: 'Indie Flower', cursive;
   color: white;
@@ -30,12 +18,14 @@ body {
   text-shadow: -.5px 0 darkgrey, 0 .5px darkgrey, .5px 0 darkgrey, 0 -.5px darkgrey;
 }
 
+/* Main Image */
 .cover-image {
   position: relative;
   width: 50%;
   left: 0;
 }
 
+/* Image Container Div */
 .cover-container {
   position: absolute;
   right: 0px;
@@ -43,17 +33,21 @@ body {
   width: 50%;
 }
 
-.subtitle{
+/* Subtitle Font */
+.subtitle {
   font-size: 4vw;
   text-align: center;
   font-family: 'Shadows Into Light', cursive;
   padding: 2%;
 }
+
+/* Submit Button */
 .button{
   position: relative; 
   left: 35%;
 }
 
+/* Header Fonts */
 h2, h3{       
   font-family: 'Shadows Into Light', cursive;       
 }
@@ -64,11 +58,18 @@ h2, h3{
   left: 10px;
 }
 
+/* Question Font */
 .questions {
   font-size: 1.5vw;
   font-family: 'Source Code Pro', monospace;
 }
 
+/* Media Queries */
+@media screen and (max-width: 780px) {
+  .questions {
+    font-size: 2vw;
+  }
+}
 
 @media screen and (max-width: 500px) {
   .button {
