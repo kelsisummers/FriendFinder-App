@@ -15,7 +15,7 @@ var PORT = process.env.PORT || 3000;
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use('/public/css', express.static(__dirname + '/app/public'));
+app.use('/public/css', express.static(__dirname + '/app/public/'));
 
 
 // Routing

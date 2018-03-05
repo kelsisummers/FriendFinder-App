@@ -252,27 +252,20 @@
     </div>
   </footer>
 
-  <!-- Modal -->
-  <div id="results-modal" class="modal fade" role="dialog">
-    <div class="modal-dialog">
+    <!-- Modal Trigger -->
+    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
 
-      <!-- Modal content-->
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
       <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">×</button>
-          <h2 class="modal-title"><strong>Best Match</strong></h2>
-        </div>
-        <div class="modal-body">
-          <h2 id="match-name"></h2>
-          <!-- <img id="match-img" src="https://media.licdn.com/mpr/mpr/shrinknp_400_400/p/6/005/064/1bd/3435aa3.jpg" alt=""> -->
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
+        <h4>Best Match</h4>
+        <h2 id="match-name"></h2>
+        <img id="match-img" src="" alt="">
       </div>
-
+      <div class="modal-footer">
+        <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+      </div>
     </div>
-  </div>
 
 <!-- Overwrite Materialize CSS -->
 <style>
