@@ -347,7 +347,7 @@
 
         // AJAX post the data to the friends API.
         $.post("/api/friends", userData, function(data) {
-          console.log("What is data?", JSON.parse(data));
+          alert(data);
 
           // Grab the result from the AJAX post so that the best match's name and photo are displayed.
           for (var i=0; i < userData.scores.length; i++){
