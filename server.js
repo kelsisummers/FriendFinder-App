@@ -11,18 +11,11 @@ var apiRoute = require("./app/routing/apiRoutes.js");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-function css(request, response) {
-  if (request.url === '/styles.css') {
-    response.writeHead(200, {'Content-type' : 'text/css'});
-    var fileContents = fs.readFileSync('./views/styles.css', {encoding: 'utf8'});
-    response.write(fileContents);
-  }
-};
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(express.static(__dirname + '/public'));
+app.use('/css/style.css', express.static(__dirname + '/public'));
 
 
 // Routing
