@@ -14,7 +14,6 @@
  
   <!-- Materialize CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-  <link href="https://fonts.googleapis.›com/icon?family=Material+Icons" rel="stylesheet">
 
   <!-- Materialize JavaScript -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
@@ -256,7 +255,7 @@
     <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
 
     <!-- Modal Structure -->
-    <!-- <div id="modal1" class="modal">
+    <div id="modal1" class="modal">
       <div class="modal-content">
         <h4>Best Match</h4>
         <h2 id="match-name"></h2>
@@ -265,7 +264,7 @@
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
       </div>
-    </div> -->
+    </div>
 
 <!-- Overwrite Materialize CSS -->
 <style>
@@ -292,6 +291,8 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $('select').material_select();
+    $('.modal').modal();
+    // $('#modal1').modal('open');
 
     // Capture the form inputs
     $("#submit").on("click", function(event) {
