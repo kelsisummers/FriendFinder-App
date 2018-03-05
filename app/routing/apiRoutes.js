@@ -19,7 +19,6 @@ apiRoute.get("/api/friends", function(req, res) {
 
   // Create New Reso - takes in JSON input
 apiRoute.post("/api/:new", function(req, res) {
-  friends.empty();
   // req.body Hosts Is Equal To The JSON Post Sent From The User
   // This Works Because Of The Body-Parser Middleware
   var newFriend = req.body;
