@@ -292,7 +292,7 @@
   $(document).ready(function() {
     $('select').material_select();
     $('.modal').modal();
-    // $('#modal1').modal('open');
+    
 
     // Capture the form inputs
     $("#submit").on("click", function(event) {
@@ -340,19 +340,25 @@
             $("#q10").val()
           ]
         };
+
+        
         // Troubleshooting:
         // console.log("User Data: ", userData);
 
         // AJAX post the data to the friends API.
         $.post("/api/friends", userData, function(data) {
-          console.log("What is data?", data)
+          console.log("What is data?", JSON.parse(data));
 
           // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+          for (var i=0; i < userData.scores.length; i++){
+            var totalDifference = userData.scores[i]-data[i].scores[i];
+            console.log("Total Difference: ", totalDifference);
+          }
           $("#match-name").text(data.name);
           $("#match-img").attr("src", data.photo);
 
           // Show the modal with the best match
-          $("#results-modal").modal("toggle");
+          // $('#modal1').modal('open');
 
         });
       } else {
