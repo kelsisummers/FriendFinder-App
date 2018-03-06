@@ -12,17 +12,19 @@ var app = express();
 var PORT = process.env.PORT || 3000;
 
 
-// Sets up the Express app to handle data parsing
+// Sets up the Express App with BodyParse Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+
+// Links Up Express App to CSS Files
 app.use('/public/css', express.static(__dirname + '/app/public/css'));
 app.use('/public/css', express.static(__dirname + '/app/public/css/images'));
 
 
-// Routing
+// HTML & API Routing
 app.use(htmlRoute);
-
 app.use(apiRoute);
+
 
 // Starts the server to begin listening
 // =============================================================

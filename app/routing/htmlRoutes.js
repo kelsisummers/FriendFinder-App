@@ -3,27 +3,22 @@
 var express = require("express");
 var path = require("path");
 
-// Sets up the Express App
+// Sets Up The Express App
 // =============================================================
-const htmlRoute = express.Router();
-
-// Sets up the Express app to handle data parsing
+var htmlRoute = express.Router();
 
 
-// Routes
-// =============================================================
-
-// Basic route that sends the user first to the AJAX Page
+// Route That Sends The User First To The Homepage
 htmlRoute.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "/../public/home.html"));
   });
   
+// Route That Sends User To The Survey
 htmlRoute.get("/survey", function(req, res) {
     res.sendFile(path.join(__dirname, "/../public/survey.html"));
 });
 
-// console.log(__dirname)
-
+// Exports HTML Route
 module.exports = htmlRoute;
 
 

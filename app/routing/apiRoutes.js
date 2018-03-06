@@ -4,26 +4,34 @@ var express = require("express");
 var path = require("path");
 var friends = require('../data/friends.js');;
 
-// Sets up the Express App
+
+// Sets Up The Express App For API
 // =============================================================
-const apiRoute = express.Router();
+var apiRoute = express.Router();
 
-// Sets up the Express app to handle data parsing
-
-// console.log(userData);
-
-// Get All Reservations
-apiRoute.get("/api/friends", function(req, res) {
-  res.json(friends);
+apiRoute.use(function(req, res, next) { // run for any & all requests
+  console.log("Connection to the API.."); // set up logging for every API call
+  next(); // ..to the next routes from here..
 });
 
-  // Create New Reso - takes in JSON input
-apiRoute.post("/api/:new", function(req, res) {
-  // req.body Hosts Is Equal To The JSON Post Sent From The User
-  // This Works Because Of The Body-Parser Middleware
-  var newFriend = req.body;
+// Sets Up The Express App To Handle Data Parsing
+apiRoute.route("/api/friends")
+  // Get All Friends
+  .get(function(req, res){
+    res.json(friends);
+  })
+  // Create New Friend - takes in JSON input
+  .post(function(req, res){
+    // console.log("Request: ", req)
+    // console.log("Response: ", JSON.parse(res))
 
-  friends.push(newFriend);
-});
+    // req.body Hosts Is Equal To The JSON Post Sent From The User
+    // This Works Because Of The Body-Parser Middleware
+    var newFriend = req.body;
 
+    friends.push(newFriend);
+    console.log(newFriend)
+  });
+
+// Export apiRoute
 module.exports = apiRoute;
