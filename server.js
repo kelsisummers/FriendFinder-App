@@ -22,7 +22,7 @@ app.use('/public/css', express.static(__dirname + '/app/public/css/images'));
 
 
 // HTML & API Routing
-app.use(htmlRoute);
+app.use('/', htmlRoute);
 app.use(apiRoute);
 
 

@@ -9,10 +9,10 @@ var friends = require('../data/friends.js');;
 // =============================================================
 var apiRoute = express.Router();
 
-apiRoute.use(function(req, res, next) { // run for any & all requests
-  console.log("Connection to the API.."); // set up logging for every API call
-  next(); // ..to the next routes from here..
-});
+// apiRoute.use(function(req, res, next) { // run for any & all requests
+//   console.log("Connection to the API.."); // set up logging for every API call
+//   next(); // ..to the next routes from here..
+// });
 
 // Sets Up The Express App To Handle Data Parsing
 apiRoute.route("/api/friends")
