@@ -22,6 +22,7 @@ apiRoute.route("/api/friends")
   })
   // Create New Friend - takes in JSON input
   .post(function(req, res){
+    // Troubleshooting
     // console.log("Request: ", req)
     // console.log("Response: ", JSON.parse(res))
 
@@ -29,8 +30,12 @@ apiRoute.route("/api/friends")
     // This Works Because Of The Body-Parser Middleware
     var newFriend = req.body;
 
+    // Sends newFriend As JSON Response
+    res.json(newFriend);
+
+    // console.log(newFriend);
+    // Adds newFriend To friends Array
     friends.push(newFriend);
-    console.log(newFriend)
   });
 
 // Export apiRoute

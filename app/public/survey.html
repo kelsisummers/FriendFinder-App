@@ -254,15 +254,12 @@
     </div>
   </footer>
 
-    <!-- Modal Trigger -->
-    <!-- <a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a> -->
-
     <!-- Modal Structure -->
     <div id="modal1" class="modal">
-      <div class="modal-content">
+      <div class="modal-content center-align">
         <h4>Best Match</h4>
-        <h2 id="match-name"></h2>
         <img id="match-img" src="" alt="">
+        <h3 id="match-name"></h3>
       </div>
       <div class="modal-footer">
         <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
@@ -292,17 +289,32 @@
 
 <!-- Form Javascript -->
 <script type="text/javascript">
+  // Doesn't Run Javascript Code Until Document Is Loaded
   $(document).ready(function() {
-    // jQuery.ajaxSettings.traditional = true;
     $('select').material_select();
     $('.modal').modal();
-    
 
+    // Creates A Variable For Friends Data
+    var friendsArray;
+    // Grabs Friends Data From API
+    $.get('/api/friends')
+    .done(function(data){
+      // Stores That Data To Variable
+      friendsArray = data;
+      // Returns Array For Later Use
+      return friendsArray;
+    });
+
+    // Troubleshooting
+    // setTimeout(function(){
+    //   console.log("Friends", friendsArray);
+    // }, 1000)
+    
     // Capture the form inputs
     $("#submit").on("click", function(event) {
       event.preventDefault();
 
-      // Form validation
+      // Form Validation
       function validateForm() {
         var isValid = true;
         $(".form-control").each(function() {
@@ -324,10 +336,10 @@
         return isValid;
       }
 
-      // If all required fields are filled
+      // If All Required Fields Are Filled
       if (validateForm()) {
         
-        // Create an object for the user's data
+        // Create An Object For The User's Input
         var newFriend = {
           name: $("#name").val(),
           photo: $("#photo").val(),
@@ -345,63 +357,64 @@
           ]
         };
 
-        
-        // Troubleshooting:
-        // console.log("User Data: ", userData);
+        // Troubleshooting
+        // console.log(newFriend);
 
-        // AJAX post the data to the friends API.
+        // Performs An AJAX Post With newFriend Object
+        $.post("/api/friends", newFriend)
+        .done(function(data) {
+          // Will Store Score Differences
+          var diffArray = [];
+          // Creates A Variable For The forEach Function
+          var x = 0;
+          // Stores User Input Scores From Post Data As Variable
+          var userScores = data["scores[]"];
 
-      // $.post("/api/friends", newFriend,
-      //   function(data) {
+          // Troubleshooting
+          // var userInput = JSON.stringify(data);
+          // console.log("User Input: ", userInput);
+          // console.log("Friends", friendsArray);
+          // console.log('Response = ' + JSON.stringify(data));
+          // console.log("User Scores: ", userScores);
 
-      //     // If a table is available... tell user they are booked.
-      //     if (data) {
-      //       alert("Yay! You are officially booked!");
-      //     }
+          // For Each Friend In friendsArray
+          friendsArray.forEach(function(){
+            // Total Difference Starts At 0
+            var totalDifference = 0;
+            // Loops Through User/Friend Score
+            for (var i = 0; i < userScores.length; i++){
+              // Total Difference Equals Sum Of The Absolute Difference of Each Score
+              if (friendsArray[x].scores === undefined){
+                // console.log("Undefined: ", friendsArray[x]["scores[]"])
+                totalDifference += Math.abs(userScores[i] - friendsArray[x]["scores[]"][i]);
+              } else {
+                totalDifference += Math.abs(userScores[i] - friendsArray[x].scores[i]);
+              } 
+            };  
+            
+            // Each Score Difference Is Pushed To Array
+            diffArray.push(totalDifference);
+            // X Is Incremented
+            x++;
+            // Math.min Is Used To Find The Lowest Number In Difference Array
+            var minDiff = Math.min.apply(Math, diffArray);  
+            // Stores The Index Of The Lowest Difference As The Match 
+            var matchIndex = diffArray.indexOf(minDiff);
 
-      //     // If a table is available... tell user they on the waiting list.
-      //     else {
-      //       alert("Sorry you are on the wait list");
-      //     }
+            // console.log('Total Difference ' + x + " :" + totalDifference);
+            // console.log('Difference Array: ', diffArray);
+            // console.log("Minimum Difference: ", minDiff);
+            // console.log("Index of minDiff", diffArray.indexOf(minDiff));
 
-      //   });
+            // jQuery To Update Modal With The Best Match's Name And Photo
+            $("#match-name").text(friendsArray[matchIndex].name);
+            $("#match-img").attr("src", friendsArray[matchIndex].photo);
 
-        // $.post("/api/friends/", newFriend, function(data,status,xhr),"json")
-
-//         $.ajax({
-//   type: "POST",
-//   url: "/api/friends",
-//   data: newFriend,
-//   success: function(msg){
-//         alert( "Data Saved: " + msg );
-//   },
-//   error: function(XMLHttpRequest, textStatus, errorThrown) {
-//      alert("some error");
-//   }
-// });
-console.log(newFriend);
-
-           $.ajax({
-              url: "/api/friends",
-              type: "POST",
-              data: newFriend,
-              // contentType: "application/json",
-              success: function (data) {
-              callback(data);
-              }
-            });
-        // $.post("/api/friends", newFriend)
-        // .done(function(data) {
-        // 		console.log('response = ' + data);
-  
-
-        //   // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-        //   $("#match-name").text(data.name);
-        //   $("#match-img").attr("src", data.photo);
-
-        //   // Show the modal with the best match
-        //   // $('#modal1').modal('open');
-        // });
+            // Displays The Modal With The Best Match
+            $('#modal1').modal('open');
+          });
+        });
+      // If Form Is Not Complete, User Receives Error Message
       } else {
         alert("Please fill out all fields before submitting!");
       }
