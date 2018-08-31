@@ -79,6 +79,10 @@ h2 {
 /* Survey Page Styles */
 
 /* Question Font */
+a.back-link {
+  color: inherit;
+}
+
 .questions {
   font-size: 1.5vw;
 }
