@@ -71,8 +71,6 @@ h2 {
 
 .header {
   font-size: 70px;
-  /* position: relative; */
-  /* left: 10px; */
 }
 
 
@@ -194,8 +192,6 @@ a.back-link {
   }
   .header {
     font-size: 10vw;
-    /* position: relative; */
-    /* left: 10px; */
     text-align: center;
   }
   .user-form {
