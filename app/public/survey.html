@@ -29,31 +29,33 @@
 </head>
 <body>
         
-  <div class="card horizontal row">
-    <div class="row">
-      <div class="col s12 m12 l12">
-
-        <!-- Title -->
+  <!-- <div class="card horizontal row"> -->
+    <div class="survey-wrapper">
+      <!-- Title -->
+      <div class="page-title">
         <h2 class="header">Friendship Questionaire</h2>
       </div>
-      <div class="col s12 m6 l6">
-        <div class="card-content">
-          <div class="row">
+      <!-- User Input Form -->
+      <div class="user-form">
+        <!-- <div class="card-content"> -->
+          <!-- <div class="row"> -->
 
             <!-- Name Input -->
-            <div class="input-field col s6">
+            <div class="input-field col s6 user-input">
               <input placeholder="Full Name (Required)" id="name" type="text" class="validate form-control">
               <label for="name">Name</label>
             </div>
 
             <!-- Image URL Input -->
-            <div class="input-field col s6">
+            <div class="input-field col s6 user-input">
               <input placeholder="Image URL (Required)" id="photo" type="text" class="validate form-control">
               <label for="url">Link to Image</label>
             </div>
-          </div>
+          <!-- </div> -->
+        </div>
 
           <!-- Question 1 -->
+          <div class="first-column">
           <div class="row">
             <h3><strong>Question 1</strong></h3>
             <h4 class="questions">Your mind is always buzzing with unexplored ideas and plans.</h4>
@@ -137,16 +139,18 @@
               <label>Question 5</label>
             </div>
           </div>
-          <!-- End Column -->
         </div>
-      </div>
+          <!-- End Column -->
+        <!-- </div> -->
+      <!-- </div> -->
 
 
           <!-- Column 2 -->
-      <div class="card-stacked col s12 m6 l6">
-        <div class="card-content">
+      <!-- <div class="card-stacked col s12 m6 l6"> -->
+        <!-- <div class="card-content"> -->
 
           <!-- Question 6 -->
+          <div class='second-column'>
           <div class="row">
             <h3><strong>Question 6</strong></h3>
             <h4 class="questions">It is often difficult for you to relate to other people’s feelings.</h4>
@@ -229,30 +233,36 @@
               </select>
               <label>Question 10</label>
             </div>
-          </div>          
+          </div>
+        </div>          
 
           <!-- End Questions -->
-        </div>
+        <!-- </div> -->
         <div class="card-action">
           
           <!-- Submit Button -->
-          <button type="submit" class="waves-effect waves-light btn" id="submit" style="background-color:darkgray; margin-top: 2%;">Fetch</button>
+          <button type="submit" class="waves-effect waves-light btn" id="submit">Fetch</button>
         </div>
-      </div>
+          <!-- Footer Links -->
+          <div class="footer-wrapper">
+  <footer class="footer">
+      <!-- <div class="container"> -->
+  
+        <!-- API Link -->
+        <!-- <p> -->
+          <a href="/api/friends">API Friends List</a> | 
+        
+        <!-- GitHub Link -->
+        <a href="https://github.com/kelsisummers/FriendFinder-App.git">GitHub Repo</a>
+      <!-- </p> -->
+      <!-- </div> -->
+    </footer>
+  </div>
+      <!-- </div> -->
     </div>
   </div>
 
-  <!-- Footer Links -->
-  <footer class="footer">
-    <div class="container">
 
-      <!-- API Link -->
-      <p><a href="/api/friends" style="color:gray">API Friends List</a> | 
-      
-      <!-- GitHub Link -->
-      <a href="https://github.com/kelsisummers/FriendFinder-App.git" style="color:gray">GitHub Repo</a></p>
-    </div>
-  </footer>
 
     <!-- Modal Structure -->
     <div id="modal1" class="modal">

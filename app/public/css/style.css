@@ -3,34 +3,57 @@ body {
   font-family: 'Source Code Pro', monospace;
 }
 
+/* Home Page Styles */
+.wrapper {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  height: 100vh;
+}
+
 /* Logo Container Div */
 .logo-container {
-  position: absolute;
-  top: 50px;
-  left: 9vw;
+  grid-column: 1;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
 }
 
 /* Logo Font */
 .logo {
+  position: absolute;
   font-family: 'Indie Flower', cursive;
-  color: white;
+  color: #f7f7f7;
+  text-transform: uppercase;
   font-size: 10vw;
-  text-shadow: -.5px 0 darkgrey, 0 .5px darkgrey, .5px 0 darkgrey, 0 -.5px darkgrey;
+  text-shadow: -0.5px 0 black, 0 0.5px black, 0.5px 0 black, 0 -0.5px black;
 }
 
 /* Main Image */
 .cover-image {
   position: relative;
-  width: 50%;
-  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 /* Image Container Div */
 .cover-container {
-  position: absolute;
-  right: 0px;
-  top: 0px;
-  width: 50%;
+  grid-column: 2;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+/* Footer Links */
+.link-container {
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  margin-right: 50px;
+  height: 50px;
 }
 
 /* Subtitle Font */
@@ -41,38 +64,165 @@ body {
   padding: 2%;
 }
 
-/* Submit Button */
-.button{
-  position: relative; 
-  left: 35%;
-}
-
 /* Header Fonts */
-h2, h3{       
+h2 {       
   font-family: 'Shadows Into Light', cursive;       
 }
 
 .header {
-  font-size: 4vw;
-  position: relative;
-  left: 10px;
+  font-size: 70px;
+  /* position: relative; */
+  /* left: 10px; */
 }
+
+
+/* Survey Page Styles */
 
 /* Question Font */
 .questions {
   font-size: 1.5vw;
-  font-family: 'Source Code Pro', monospace;
+}
+
+.survey-wrapper {
+  padding: 50px;
+  display: grid;
+  grid-template-areas: 'title title' 'input .' 'col1 col2' '. button' '. footer';
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto auto 1fr 50px 50px;
+  grid-column-gap: 50px;
+  width: 100vw;
+}
+
+.page-title {
+  grid-area: title;
+}
+
+.user-form {
+  grid-area: input;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.user-input {
+  min-width: 310px;
+  padding-right: 25px;
+}
+
+.first-column {
+  grid-area: col1;
+}
+
+.second-column {
+  grid-area: col2;
+}
+
+.card-action {
+  grid-area: button;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+}
+
+.footer-wrapper {
+  grid-area: footer;
+  display: flex;
+  width: 100%;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.footer-wrapper a {
+  color: gray
+}
+
+#submit {
+  background-color: darkgray;
 }
 
 /* Media Queries */
-@media screen and (max-width: 780px) {
-  .questions {
-    font-size: 2vw;
+@media screen and (max-width: 800px) {
+  .wrapper {
+    grid-template-columns: unset;
+    grid-template-rows: repeat(2, auto);
+  }
+  .logo-container {
+    grid-row: 1;
+    grid-column: unset;
+    height: fit-content;
+  }
+  .cover-image {
+    height: auto;
+    object-fit: unset;
+  }
+  .logo {
+    font-size: 20vw;
+  }
+  .cover-container {
+    grid-column: unset;
+    grid-row: 2;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .subtitle {
+    padding: 0;
+    margin: 0;
+    margin-left: 10px;
+    margin-top: 25px;
+  }
+  .btn-wrapper {
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 75px;
+    margin-top: 50px;
+  }
+  .link-container {
+    margin-right: 0;
+    padding-right: 20px;
+    margin-top: 50px;
+  }
+  .survey-wrapper {
+    width: 100vw;
+    padding: 15px;
+    grid-column-gap: 0;
+    grid-template-areas: 'title title' 'input input' 'col1 col1' 'col2 col2' 'button button' 'footer footer';
+    grid-template-rows: auto auto 1fr 1fr 50px 50px;
+  }
+  .header {
+    font-size: 10vw;
+    /* position: relative; */
+    /* left: 10px; */
+    text-align: center;
+  }
+  .user-form {
+    justify-content: center;
+  }
+  .card-action {
+    padding-right: 20px;
+  }
+  .footer-wrapper {
+    padding-right: 20px;
+  }
+  .questions{
+    font-size: 16px;
   }
 }
 
 @media screen and (max-width: 500px) {
   .button {
     left: 20%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .btn-wrapper {
+    justify-content: center;
+    padding-right: 45px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .user-form {
+    justify-content: unset;
   }
 }

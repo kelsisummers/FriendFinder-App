@@ -24,33 +24,35 @@
 
 </head>
 <body>
-  <!-- Main Image  -->
-  <img class="cover-image" src="/public/css/images/two_swings_cover.jpg" style="height:45vw">
 
-  <!-- Logo -->
-  <div class="logo-container responsive">
-    <h1 class="logo">Fetching</h1>
-  </div>
-
-  <!-- Instructions Div -->
-  <div class = "cover-container col s6 m6 l6">
-
-    <h2 class="subtitle">Answer a Few Basic Questions</h2>
-    <h2 class="subtitle">Fetching Will Find the Friend with the Greatest Compatibility</h2>
-
-    <!-- Survey Link Button -->
-    <a href="/survey"><button class="btn waves-effect waves-light button" type="button" name="action" style="background-color:darkgray; margin-top: 2%;">Survey</button></a>
-  </div>
-
-<!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <!-- API Link -->
-      <p><a href="/api/friends" style="color:gray">API Friends List</a> | 
-      <!-- GitHub Link -->
-      <a href="https://github.com/kelsisummers/FriendFinder-App.git" style="color:gray">GitHub Repo</a></p>
+  <div class="wrapper">
+    <div class="logo-container">
+      <!-- Main Image  -->
+      <img class="cover-image" src="/public/css/images/two_swings_cover.jpg">
+      <!-- Logo -->
+      <!-- <div class='logo-wrapper'> -->
+        <h1 class="logo">Fetching</h1>
+      <!-- </div> -->
     </div>
-  </footer>
+
+    <!-- Instructions Div -->
+    <div class="cover-container">
+      <h2 class="subtitle">Answer a Few Basic Questions</h2>
+      <h2 class="subtitle">Fetching Will Find the Friend with the Greatest Compatibility</h2>
+
+      <!-- Survey Link Button -->
+      <div class='btn-wrapper'>
+        <a href="/survey" class="survey-btn"><button class="btn waves-effect waves-light button" type="button" name="action" style="background-color:darkgray; margin-top: 2%;">Survey</button></a>
+      </div>
+      <!-- Links -->
+      <div class="link-container">
+        <!-- API Link -->
+        <p><a href="/api/friends" style="color:gray">API Friends List</a> | 
+        <!-- GitHub Link -->
+        <a href="https://github.com/kelsisummers/FriendF nder-App.git" style="color:gray">GitHub Repo</a></p>
+      </div>
+    </div>
   </div>
+
 </body>
 </html>
